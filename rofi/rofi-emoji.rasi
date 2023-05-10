@@ -1,0 +1,92 @@
+configuration{
+	display-emoji: "";
+	show-icons: false;
+	me-select-entry: "";
+	me-accept-entry: "MousePrimary";
+}
+
+@import "~/.config/rofi/lib/color.rasi"
+
+* {
+  font: "Noto Sans 10";
+	text-color: @FG;
+	background-color: @BG;
+	border-color: #00000000;
+	width: 684px;
+	height: 477px;
+	location: 0;
+}
+
+window {
+  text-color:                     @FG;
+  border:                         1px;
+  border-color:                   @BDR;
+  border-radius:                  16px;
+  padding: 10px;
+  x-offset:                       610px;
+  y-offset:                       300px;
+}
+
+inputbar {
+	border: 0 0 1px 0;
+	children: [prompt,entry];
+}
+
+prompt {
+	font: "SF Pro Display 10";
+	vertical-align: 0.5;
+	padding: 0px 9px 0px 9px;
+	border: 0 1px 0 0;
+  border-radius:                  100%;
+  background-color:               @BGA;
+  text-color:                     @FG;
+  padding:                      8px 17px 8px 12px; 
+}
+
+entry {
+  background-color:               @BGA;
+  text-color:                     @FG;
+  placeholder-color:              @FG;
+  expand:                         true;
+  horizontal-align:               0;
+  placeholder:                    "Search your emoji...";
+  blink:                          true;
+  //border:                  	    2px;
+  //border-color:                   @BDR;
+  border-radius:                  10px;
+  padding:                        8px;
+  margin: 0px 0px 0px 10px;
+}
+
+entry {
+	padding: 12px;
+}
+
+listview {
+	cycle: false;
+	scrollbar: false;
+	columns: 9;
+	cycle: false;
+	dynamic: false;
+	layout: vertical;
+	padding: 8px 10px 10px 10px;
+}
+
+element {
+	border-radius: 3px;
+	padding: 14px 0px 14px 0px;
+}
+
+element-text {
+	font: "Noto Color Emoji 27";
+	expand: false;
+	text-color: @BGA;
+	horizontal-align: 1;
+	vertical-align: 0.5;
+	margin: 0px 0px 0px 13px;
+	width: 1px;
+}
+
+element selected {
+  background-color: @BGA;
+}

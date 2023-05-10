@@ -1,0 +1,47 @@
+window {
+    font-family: SF Pro Display;
+    font-size: 14pt;
+    color: #cdd6f4; /* text */
+    background-color: #181825;
+}
+
+button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    border: 1px solid #313244;
+    background-color: #1e1e2e;
+    border-radius: 16px;
+    margin: 5px;
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    margin: 16px;
+}
+
+button:hover {
+	background-color: #313244;
+}
+
+button:focus {
+    background-color: #cba6f7;
+    color: #1e1e2e;
+}
+
+#lock {
+    background-image: image(url("./lock.png"));
+}
+
+#logout {
+    background-image: image(url("./logout.png"));
+}
+
+#suspend {
+    background-image: image(url("./suspend.png"));
+}
+
+#shutdown {
+    background-image: image(url("./shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("./restart.png"));
+}
