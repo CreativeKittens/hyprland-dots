@@ -57,7 +57,7 @@
 		"spacing": 10
 	},
 	"clock": {
-		"format": "{:  %R      %a, %B %d, %Y}",
+		"format": "{:   %R        %a, %B %d, %Y}",
 		"tooltip-format": "<tt><small>{calendar}</small></tt>"
 	},
   "custom/powermenu": {
@@ -99,9 +99,9 @@
 		"on-scroll-down": "pamixer -d 1",
 		"scroll-step": 5,
 		"format-icons": {
-			"headphone": "󰋋 ",
-			"hands-free": "󰋋 ",
-			"headset": "󰋋 ",
+			"headphone": "󰋋  ",
+			"hands-free": "󰋋  ",
+			"headset": "󰋋  ",
 			"phone": "",
 			"portable": "",
 			"car": "",
@@ -120,7 +120,7 @@
     "on-click-right": "killall pavucontrol || pavucontrol"
 	},
 	"network": {
-		"format-wifi": "󰤨  ({bandwidthDownBytes}) {essid}",
+		"format-wifi": "󰤨   ({bandwidthDownBytes}) {essid}",
 		"format-ethernet": "{ipaddr} ({bandwidthDownBytes})  ",
 		"tooltip-format": "{ifname} via {gwaddr}  ",
     "max-length": 20,
@@ -145,12 +145,12 @@
 		"format-charging": "{capacity}% 󱐌 Charging",
 		"format-plugged": "{capacity}% ",
 		"format-alt": "{time} {icon}",
-		"format-icons": ["   ", "   ", "   ", "  ", "   "]
+		"format-icons": ["    ", "    ", "    ", "    ", "    "]
 	},
 	"backlight": {
 		"device": "intel_backlight",
 		"format": "{icon} {percent}%",
-		"format-icons": ["󰃞 ", "󰃟 ", "󰃝 ", "󰃠 "],
+		"format-icons": ["󰃞  ", "󰃟  ", "󰃝  ", "󰃠  "],
 		"on-scroll-up": "brightnessctl set +10 -n 50",
 		"on-scroll-down": "brightnessctl set 10- -n 50"
 	},

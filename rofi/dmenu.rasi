@@ -5,8 +5,7 @@ configuration {
 }
 
 * {
-	// font: "JetBrains Mono Nerd Font Regular 10";
-	font: "SF Pro Display 10";
+	font: "Plus Jakarta Sans 10";
 	background-color:              rgba(24, 24, 37, 90%);
 	text-color:                     @FG;
 }
@@ -34,7 +33,7 @@ textbox-prompt-colon {
     background-color:               @BGA;
     text-color:                     @FG;
     padding:                        8px 14px 8px 11px;
-    font: "SF Pro Display 10";
+    font: "Plus Jakarta Sans 8";
 }
 
 entry {
