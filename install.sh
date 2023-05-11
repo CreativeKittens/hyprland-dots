@@ -1,3 +1,6 @@
+#!/bin/bash
+
+#### Check for yay ####
 ISYAY=/sbin/yay
 if [ -f "$ISYAY" ]; then 
     echo -e "$COK - yay was located, moving on."
@@ -20,7 +23,7 @@ fi
 read -n1 -rep 'Would you like to install core packages? (Hyprland, kitty, thunar, waybar..etc) (y,n)' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
     yay -R --noconfirm swaylock waybar
-    yay -S --noconfirm hyprland-git polkit-gnome ffmpeg neovim viewnior \
+    yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior \
     rofi pavucontrol thunar starship clip-hist \
     swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl      \
     noise-suppression-for-voice thunar-archive-plugin file-roller kitty       \
@@ -32,7 +35,7 @@ read -n1 -rep 'Would you like to install required font? (Nerd font ..etc)' FNT
 if [[ $FNT == "Y" || $FNT == "y" ]]; then
 	yay -S --noconfirm otf-sora ttf-nerd-fonts-symbols-common otf-firamono-nerd inter-font    \
     ttf-fantasque-nerd noto-fonts noto-fonts-emoji ttf-comfortaa  \
-    ttf-jetbrains-mono-nerd ttf-icomoon-feather ttf-iosevka-nerd  \
+    ttf-jetbrains-mono-nerd ttf-icomoon-feather ttf-iosevka-nerd ttf-roboto  \
     adobe-source-code-pro-fonts ttf-fira-code ttf-ms-win11-auto ttf-fira-code plus-jakarta-sans-font
 fi
 
@@ -72,22 +75,22 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp -R ./dotconfig/user-dirs.locale ~/.config/
 fi
 
-read -n1 -rep 'Would you like to install additional application? (web browser, pdf viewer, vlc)' APP
+read -n1 -rep 'Would you like to install additional application? (web browser, pdf viewer, vlc) (y,n)' APP
 if [[ $APP == "Y" || $APP == "y" ]]; then
     yay -S --noconfirm firefox-bin firefox-nightly-bin zathura zathura-cb zathura-djvu zathura-mupdf zathura-pdf-popper zathura-ps vlc
 fi
 
-read -n1 -rep 'Would you like to install dev app? (Vscode, postman, )' DEV
+read -n1 -rep 'Would you like to install dev app? (Vscode, postman) (y,n)' DEV
 if [[ $DEV == "Y" || $DEV == "y" ]]; then
     yay -S --noconfirm visual-studio-code-bin gnome-keyring nvm-git
 fi
 
-read -n1 -rep 'Would you like to install office tools (Libre office)' OFFC
+read -n1 -rep 'Would you like to install office tools (Libre office) (y,n)' OFFC
 if [[ $OFFC == "Y" || $OFFC == "y" ]]; then
     yay -S --noconfirm libre-office-fresh
 fi
 
-read -n1 -rep 'Would you like to install Graphic tools (Gimp, Inkscape, Krita)' GRAPH
+read -n1 -rep 'Would you like to install Graphic tools (Gimp, Inkscape, Krita) (y,n)' GRAPH
 if [[ $GRAPH == "Y" || $OFFC == "y" ]]; then
     yay -S --noconfirm gimp inkscape krita obs
 fi
