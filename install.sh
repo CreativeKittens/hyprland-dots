@@ -23,7 +23,7 @@ fi
 read -n1 -rep 'Would you like to install core packages? (Hyprland, kitty, thunar, waybar..etc) (y,n)' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
     yay -R --noconfirm swaylock waybar
-    yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior \
+    yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior nm-applet bluez bluez-utils blueman \
     rofi pavucontrol thunar starship clip-hist \
     swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl      \
     noise-suppression-for-voice thunar-archive-plugin file-roller kitty       \
@@ -41,7 +41,7 @@ fi
 
 read -n1 -rep 'Would you like to install theme components? (GTK Theme, cursor, icons...etc) (y,n)' THME
 if [[ $THME == "Y" || $THME == "y" ]]; then
-	yay -S --noconfirm  catppuccin-gtk-theme-mocha layan-cursor-theme-git papirus-icon-theme 
+	yay -S --noconfirm  catppuccin-gtk-theme-mocha layan-cursor-theme-git papirus-icon-theme sddm-catppuccin-git
 fi
 
 read -n1 -rep 'Would you like to enable SDDM autologin? (y,n)' WIFI
