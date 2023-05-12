@@ -13,7 +13,7 @@ else
         cd yay-git
         makepkg -si --noconfirm
         cd ..
-        
+       	yay -Suy 
     else
         echo -e "$CER - Yay is required for this script, now exiting"
         exit
@@ -28,7 +28,9 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl      \
     noise-suppression-for-voice thunar-archive-plugin file-roller kitty       \
     waybar-hyprland dunst cava btop wlogout swaylock-effects sddm-git pamixer     \
-    nwg-look-bin 
+    nwg-look-bin
+
+    chsh -s $(which zsh)
 fi
 
 read -n1 -rep 'Would you like to install required font? (Nerd font ..etc)' FNT
