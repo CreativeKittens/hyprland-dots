@@ -164,7 +164,7 @@
 		"format-alt": "{ifname}: {ipaddr}/{cidr}"
 	},
 	"custom/powermenu": {
-		"format": "   Power",
+		"format": "Power  ",
 		"on-click": "killall wlogout ||  wlogout --protocol layer-shell -b 5 -T 400 -B 400"
 	}
 }
