@@ -23,11 +23,11 @@ fi
 read -n1 -rep 'Would you like to install core packages? (Hyprland, kitty, thunar, waybar..etc) (y,n)' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
     yay -R --noconfirm swaylock waybar
-    yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior nm-applet bluez bluez-utils blueman \
-    rofi pavucontrol thunar starship clip-hist gvfs gvfs-mtp \
-    swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl      \
-    noise-suppression-for-voice thunar-archive-plugin file-roller kitty       \
-    waybar-hyprland-git dunst cava btop wlogout swaylock-effects sddm-git pamixer     \
+    yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior \
+    rofi pavucontrol thunar starship clip-hist gvfs gvfs-mtp nm-applet bluez bluez-utils blueman \
+    swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl bat \
+    noise-suppression-for-voice thunar-archive-plugin file-roller kitty \
+    waybar-hyprland-git dunst cava btop wlogout swaylock-effects sddm-git pamixer \
     nwg-look-bin
 	
     echo -e "Changing shell to zsh"
