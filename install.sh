@@ -27,7 +27,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     rofi pavucontrol thunar starship clip-hist gvfs gvfs-mtp \
     swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl      \
     noise-suppression-for-voice thunar-archive-plugin file-roller kitty       \
-    waybar-hyprland dunst cava btop wlogout swaylock-effects sddm-git pamixer     \
+    waybar-hyprland-git dunst cava btop wlogout swaylock-effects sddm-git pamixer     \
     nwg-look-bin
 	
     echo -e "Changing shell to zsh"
@@ -73,9 +73,9 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp -R ./starship ~/.config/
     cp -R ./zsh ~/.config/
     cp -R ./scripts ~/.config/
-    cp -R ./electron-flags.confg ~/.config/
+    cp -R ./electron-flags.conf ~/.config/
     cp -R ./user-dirs.dirs ~/.config/
-    cp -R ./dotconfig/user-dirs.locale ~/.config/
+    cp -R ./user-dirs.locale ~/.config/
 fi
 
 read -n1 -rep 'Would you like to install additional application? (web browser, pdf viewer, vlc) (y,n)' APP
