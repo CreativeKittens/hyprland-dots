@@ -26,7 +26,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior \
     rofi rofi-calc rofi-emoji pavucontrol thunar cliphist gvfs gvfs-mtp network-manager-applet bluez bluez-utils blueman nm-applet \
     swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl bat exa \
-    noise-suppression-for-voice thunar-archive-plugin file-roller kitty \
+    noise-suppression-for-voice thunar-archive-plugin file-roller kitty neofetch \
     waybar-hyprland-git xdg-desktp-portal-hyprland dunst cava btop wlogout swaylock-effects sddm-git pamixer \
     nwg-look-bin
 	
