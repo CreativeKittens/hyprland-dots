@@ -32,6 +32,9 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 	
     echo -e "Changing shell to zsh"
     chsh -s $(which zsh)
+
+    echo -e "Enabling bluetooth"
+    sudo systemctl enable bluetooth
 fi
 
 read -n1 -rep 'Would you like to install required font? (Nerd font ..etc) (y,n)' FNT
