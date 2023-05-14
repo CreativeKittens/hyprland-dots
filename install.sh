@@ -24,7 +24,7 @@ read -n1 -rep 'Would you like to install core packages? (Hyprland, kitty, thunar
 if [[ $INST == "Y" || $INST == "y" ]]; then
     yay -R --noconfirm swaylock waybar
     yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior \
-    rofi rofi-calc rofi-emoji pavucontrol thunar clip-hist gvfs gvfs-mtp network-manager-applet bluez bluez-utils blueman nm-applet \
+    rofi rofi-calc rofi-emoji pavucontrol thunar cliphist gvfs gvfs-mtp network-manager-applet bluez bluez-utils blueman nm-applet \
     swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl bat exa \
     noise-suppression-for-voice thunar-archive-plugin file-roller kitty \
     waybar-hyprland-git xdg-desktp-portal-hyprland dunst cava btop wlogout swaylock-effects sddm-git pamixer \
