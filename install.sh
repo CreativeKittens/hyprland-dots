@@ -74,11 +74,12 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp -R ./wlogout ~/.config/
     cp -R ./neofetch ~/.config/
     cp -R ./starship ~/.config/
+    co -R ./dunst ~/.config/
     cp -R ./zsh ~/.config/
     cp -R ./scripts ~/.config/
-    cp -R ./electron-flags.conf ~/
-    cp -R ./user-dirs.dirs ~/
-    cp -R ./user-dirs.locale ~/
+    cp -R ./user-dirs.dirs ~/.config/
+    cp -R ./user-dirs.locale ~/.config/
+    cp -R ./electron-flags.conf ~/ 
     cp -R ./zshenv ~/
 
 read -n1 -rep 'Would you like to install additional application? (web browser, pdf viewer, vlc) (y,n)' APP
