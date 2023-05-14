@@ -31,7 +31,7 @@ textbox-prompt-colon {
     border-radius:                  100%;
     background-color:               @BGA;
     text-color:                     @FG;
-font: "Plus Jakarta Sans 8"; 
+font: "Arial 8";
     padding:                        8px 14px 8px 11px;
 }
 

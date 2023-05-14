@@ -92,7 +92,7 @@
 
 	// Right Module
 	"tray": {
-		"icon-size": 13,
+		"icon-size": 16,
 		"spacing": 10
 	},
 	"temperature": {

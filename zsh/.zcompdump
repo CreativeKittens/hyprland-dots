@@ -1,4 +1,4 @@
-#files: 821	version: 5.9
+#files: 811	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -80,6 +80,7 @@ _comps=(
 'basename' '_basename'
 'basenc' '_basenc'
 'bash' '_bash'
+'bat' '_bat'
 'batch' '_at'
 'baz' '_baz'
 'beep' '_beep'
@@ -122,7 +123,6 @@ _comps=(
 'bunzip2' '_bzip2'
 'burst' '_mh'
 'busctl' '_busctl'
-'bwrap' '_bwrap'
 'bzcat' '_bzip2'
 'bzegrep' '_grep'
 'bzfgrep' '_grep'
@@ -134,6 +134,7 @@ _comps=(
 'cabal' '_cabal'
 'cal' '_cal'
 'calendar' '_calendar'
+'cargo' '_cargo'
 'cat' '_cat'
 'catchsegv' '_precommand'
 'cc' '_gcc'
@@ -151,8 +152,8 @@ _comps=(
 'chattr' '_chattr'
 'chcon' '_chcon'
 'chdir' '_cd'
-'checkupdates' '_checkupdates'
 'chfn' '_users'
+'chg' '_hg'
 'chgrp' '_chown'
 'chimera' '_webbrowser'
 'chkconfig' '_chkconfig'
@@ -261,8 +262,6 @@ _comps=(
 'dmesg' '_dmesg'
 'dmidecode' '_dmidecode'
 'doas' '_doas'
-'docker' '_docker'
-'dockerd' '_docker'
 'domainname' '_yp'
 'dos2unix' '_dos2unix'
 'drill' '_drill'
@@ -574,6 +573,7 @@ _comps=(
 'heat' '_openstack'
 'help' '_sccs'
 'hexdump' '_hexdump'
+'hg' '_hg'
 'hilite' '_precommand'
 'histed' '_zed'
 'history' '_fc'
@@ -875,22 +875,14 @@ _comps=(
 'p4' '_perforce'
 'p4d' '_perforce'
 'pacat' '_pulseaudio'
-'paccache' '_paccache'
-'pacdiff' '_pacdiff'
 'pack' '_pack'
 'packf' '_mh'
-'paclist' '_paclist'
-'paclog-pkglist' '_paclog-pkglist'
 'pacman' '_pacman'
 'pacman-conf' '_pacman'
 'pacman-key' '_pacman'
 'pacman.static' '_pacman'
 'pacmd' '_pulseaudio'
-'pacscripts' '_pacscripts'
-'pacsearch' '_pacsearch'
-'pacsort' '_pacsort'
 'pactl' '_pulseaudio'
-'pactree' '_pactree'
 'padsp' '_pulseaudio'
 'pandoc' '_pandoc'
 'paplay' '_pulseaudio'
@@ -1023,7 +1015,6 @@ _comps=(
 'quilt' '_quilt'
 'r' '_fc'
 'rake' '_rake'
-'rankmirrors' '_rankmirrors'
 'ranlib' '_ranlib'
 'rar' '_rar'
 'rc' '_sh'
@@ -1328,7 +1319,6 @@ _comps=(
 'unwrapdiff' '_patchutils'
 'unxz' '_xz'
 'unzip' '_zip'
-'updpkgsums' '_updpkgsums'
 'uptime' '_uptime'
 'urxvt' '_urxvt'
 'urxvt256c' '_urxvt'
@@ -1670,17 +1660,15 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _bluetoothctl _bootctl _busctl _bwrap _checkupdates \
-            _code _coredumpctl _curl _docker _exa \
+autoload -Uz _bat _bluetoothctl _bootctl _busctl _cargo \
+            _code _coredumpctl _curl _exa _hg \
             _hostnamectl _journalctl _kernel-install _libinput _localectl \
             _loginctl _machinectl _mkinitcpio _networkctl _oomctl \
-            _paccache _pacdiff _paclist _paclog-pkglist _pacman \
-            _pacscripts _pacsearch _pacsort _pactree _playerctl \
-            _pulseaudio _rankmirrors _resolvectl _sd_hosts_or_user_at_host _sd_machines \
-            _sd_outputmodes _sd_unit_files _starship _swaylock _systemctl \
-            _systemd _systemd-analyze _systemd-delta _systemd-inhibit _systemd-nspawn \
-            _systemd-path _systemd-run _systemd-tmpfiles _timedatectl _udevadm \
-            _updpkgsums _wl-copy _wlogout _wl-paste _yay \
+            _pacman _playerctl _pulseaudio _resolvectl _sd_hosts_or_user_at_host \
+            _sd_machines _sd_outputmodes _sd_unit_files _starship _swaylock \
+            _systemctl _systemd _systemd-analyze _systemd-delta _systemd-inhibit \
+            _systemd-nspawn _systemd-path _systemd-run _systemd-tmpfiles _timedatectl \
+            _udevadm _wl-copy _wlogout _wl-paste _yay \
             _zathura _cdr _all_labels _all_matches _alternative \
             _approximate _arg_compile _arguments _bash_completions _cache_invalid \
             _call_function _combination _complete _complete_debug _complete_help \
