@@ -24,10 +24,10 @@ read -n1 -rep 'Would you like to install core packages? (Hyprland, kitty, thunar
 if [[ $INST == "Y" || $INST == "y" ]]; then
     yay -R --noconfirm swaylock waybar
     yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior \
-    rofi pavucontrol thunar starship clip-hist gvfs gvfs-mtp nm-applet bluez bluez-utils blueman \
-    swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl bat \
+    rofi rofi-calc rofi-emoji pavucontrol thunar clip-hist gvfs gvfs-mtp network-manager-applet bluez bluez-utils blueman nm-applet \
+    swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl bat exa \
     noise-suppression-for-voice thunar-archive-plugin file-roller kitty \
-    waybar-hyprland-git dunst cava btop wlogout swaylock-effects sddm-git pamixer \
+    waybar-hyprland-git xdg-desktp-portal-hyprland dunst cava btop wlogout swaylock-effects sddm-git pamixer \
     nwg-look-bin
 	
     echo -e "Changing shell to zsh"
@@ -73,14 +73,14 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp -R ./starship ~/.config/
     cp -R ./zsh ~/.config/
     cp -R ./scripts ~/.config/
-    cp -R ./electron-flags.conf ~/.config/
-    cp -R ./user-dirs.dirs ~/.config/
-    cp -R ./user-dirs.locale ~/.config/
-fi
+    cp -R ./electron-flags.conf ~/
+    cp -R ./user-dirs.dirs ~/
+    cp -R ./user-dirs.locale ~/
+    cp -R ./zshenv ~/
 
 read -n1 -rep 'Would you like to install additional application? (web browser, pdf viewer, vlc) (y,n)' APP
 if [[ $APP == "Y" || $APP == "y" ]]; then
-    yay -S --noconfirm firefox-bin firefox-nightly-bin zathura zathura-cb zathura-djvu zathura-mupdf zathura-pdf-popper zathura-ps vlc
+    yay -S --noconfirm firefox-bin firefox-nightly-bin zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-pdf-poppler zathura-ps vlc
 fi
 
 read -n1 -rep 'Would you like to install dev app? (Vscode, postman) (y,n)' DEV
@@ -90,12 +90,12 @@ fi
 
 read -n1 -rep 'Would you like to install office tools (Libre office) (y,n)' OFFC
 if [[ $OFFC == "Y" || $OFFC == "y" ]]; then
-    yay -S --noconfirm libre-office-fresh
+    yay -S --noconfirm libreoffice-fresh
 fi
 
 read -n1 -rep 'Would you like to install Graphic tools (Gimp, Inkscape, Krita) (y,n)' GRAPH
 if [[ $GRAPH == "Y" || $OFFC == "y" ]]; then
-    yay -S --noconfirm gimp inkscape krita obs
+    yay -S --noconfirm gimp inkscape krita obs-studio blender
 fi
 
 echo -e "Script had completed.\n"
