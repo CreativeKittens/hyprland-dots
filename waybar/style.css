@@ -73,7 +73,7 @@ tooltip {
 }
 #workspaces button {
 	border-radius: 30px;
-	padding: 8px 12px 8px 8px;
+	padding: 8px 11px 8px 7px;
 	transition: .3s;
 }
 #workspaces button.active {
