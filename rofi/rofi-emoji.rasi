@@ -8,7 +8,7 @@ configuration{
 @import "~/.config/rofi/lib/color.rasi"
 
 * {
-  font: "Noto Sans 10";
+  font: "JetBrainsMono Nerd Font Medium 10";
 	text-color: @FG;
 	background-color: @BG;
 	border-color: #00000000;
@@ -33,14 +33,13 @@ inputbar {
 }
 
 prompt {
-	font: "SF Pro Display 10";
+	font: "JetBrainsMono Nerd Font Medium 8";
 	vertical-align: 0.5;
-	padding: 0px 9px 0px 9px;
 	border: 0 1px 0 0;
   border-radius:                  100%;
   background-color:               @BGA;
   text-color:                     @FG;
-  padding:                      8px 17px 8px 12px; 
+  padding:                8px 19px 8px 15px; 
 }
 
 entry {
