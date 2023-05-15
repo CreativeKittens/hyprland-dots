@@ -1,4 +1,4 @@
-[global]
+ [global]
     follow = mouse
     indicate_hidden = yes
 
@@ -12,9 +12,6 @@
     horizontal_padding = 8
     text_icon_padding = 0
     frame_width = 2
-
-    frame_color = "#5F332F"
-    separator_color = frame
 
     sort = yes
     idle_threshold = 120
@@ -41,18 +38,23 @@
     title = Dunst
     class = Dunst
 
-    corner_radius = 10
+ corner_radius = 10
     timeout = 5
 
+[global]
+frame_color = "#89b4fa"
+separator_color= frame
+
 [urgency_low]
-    background = "#1D2021"
-    foreground = "#5F332F"
+background = "#1e1e2e"
+foreground = "#cdd6f4"
 
 [urgency_normal]
-    background = "#1D2021"
-    foreground = "#E8E3E3"
+background = "#1e1e2e"
+foreground = "#cdd6f4"
 
 [urgency_critical]
-    background = "#1D2021"
-    foreground = "#AD685A"
-    frame_color = "#DD8F6E"
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#fab387"
+
