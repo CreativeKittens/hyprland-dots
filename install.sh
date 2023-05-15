@@ -28,7 +28,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl bat exa \
     noise-suppression-for-voice thunar-archive-plugin file-roller kitty neofetch \
     waybar-hyprland-git xdg-desktp-portal-hyprland dunst cava btop wlogout swaylock-effects sddm-git pamixer \
-    nwg-look-bin
+    nwg-look-bin xdg-user-dirs
 	
     echo -e "Changing shell to zsh"
     chsh -s $(which zsh)
@@ -82,9 +82,15 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp -R ./electron-flags.conf ~/ 
     cp -R ./zshenv ~/
 
+    echo -e "making neccessary dir...\n"
+
+    mkdir ~/.cache/zsh
+    touch ~/.cache/zsh/.histfile
+fi
+
 read -n1 -rep 'Would you like to install additional application? (web browser, pdf viewer, vlc) (y,n)' APP
 if [[ $APP == "Y" || $APP == "y" ]]; then
-    yay -S --noconfirm firefox-bin firefox-nightly-bin zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-pdf-poppler zathura-ps vlc
+    yay -S --noconfirm firefox-bin firefox-nightly-bin zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-pdf-poppler zathura-ps vlc flameshot-git
 fi
 
 read -n1 -rep 'Would you like to install dev app? (Vscode, postman) (y,n)' DEV
