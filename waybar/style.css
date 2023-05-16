@@ -74,7 +74,7 @@ tooltip {
 #workspaces button {
 	border-radius: 30px;
 	padding: 8px 11px 8px 7px;
-	transition: .3s;
+	transition: 0.3s;
 }
 #workspaces button.active {
 	box-shadow: inherit;
@@ -128,22 +128,48 @@ tooltip {
 	margin-right: 5px;
 	border-radius: 0px 10px 10px 0px;
 }
-@keyframes blink {
+@keyframes warning {
 	to {
-		color: @red;
+		color: alpha(@yellow, 0.5);
+	}
+}
+@keyframes critical {
+	to {
+		color: alpha(@red, 0.3);
+	}
+}
+@keyframes charging {
+	to {
+		color: alpha(@green, 0.5);
 	}
 }
 #battery.charging,
 #battery.plugged {
+	color: @yellow;
+	animation-name: charging;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 #battery.critical {
 	color: @red;
 }
 #battery.critical:not(.charging) {
 	color: @red;
+	animation-name: warning;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 #battery.warning {
 	color: @yellow;
+	animation-name: warning;
+	animation-duration: 0.75s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
 #backlight {
 	padding-left: 10px;
