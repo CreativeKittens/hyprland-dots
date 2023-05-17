@@ -6,7 +6,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export GPG_TTY="${TTY:-$(tty)}"
 
 export SUDO_PROMPT="passwd: "
-export TERMINAL="wezterm"
+export TERMINAL="kitty"
 export BROWSER="firefox"
 export VISUAL="nvim"
 export EDITOR="nvim"

@@ -10,3 +10,30 @@ if [[ ! -f ${ZINIT_HOME}/zinit.git/zinit.zsh ]]; then
 fi
 
 source "${ZINIT_HOME}/zinit.git/zinit.zsh"
+
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
+
+zinit light-mode for \
+  hlissner/zsh-autopair \
+  MichaelAquilina/zsh-you-should-use \
+
+zinit ice wait'3' lucid
+zinit light zsh-users/zsh-history-substring-search
+
+zinit ice wait'2' lucid
+zinit light zdharma-continuum/history-search-multi-word
+
+zinit ice wait lucid from"gh-r" as"program" mv"bin/exa* -> exa"
+zinit light ogham/exa
+
+zinit ice wait lucid from"gh-r" as"program" mv"*/bat -> bat" atload"export BAT_THEME='Nord'"
+zinit light sharkdp/bat
