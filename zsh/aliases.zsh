@@ -24,3 +24,8 @@ alias grep='grep --color=auto'
 alias mv='mv -v'
 alias cp='cp -vr'
 alias rm='rm -vr'
+
+# Personal Alias
+alias toprod="cd $PRODUCTIVITY"
+alias todac="cd $DATACENTER"
+alias todex="cd $DATAEXTERNAL"
