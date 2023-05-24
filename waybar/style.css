@@ -14,7 +14,6 @@ window#waybar {
 	transition-duration: 0.5s;
 	background: transparent;
 }
-
 window#waybar > box {
 	background-color: alpha(@base, 1);
 	margin-bottom: 5px;
@@ -22,9 +21,6 @@ window#waybar > box {
 	box-shadow: 0px 3px 3px alpha(@crust, 0.8);
    border-radius: 12px;
 }
-
-window#waybar.hidden {
-
 window#waybar.hidden {
 	opacity: 0.2;
 }
@@ -45,6 +41,8 @@ tooltip {
 #custom-updater,
 #custom-menulogo,
 #custom-powermenu,
+#disk,
+#memory,
 #temperature,
 #tray {
 	padding-right: 10px;
@@ -120,8 +118,17 @@ tooltip {
 	padding-right: 0px;
 	border-radius: 10px 0px 0px 10px;
 }
+#disk {
+	padding-left: 10px;
+	padding-right: 0px;
+	border-radius: 10px 0px 0px 10px;
+}
 #temperature.critical {
 	color: @red;
+}
+#memory {
+	padding-left: 10px;
+	padding-right: 0px;
 }
 #custom-updater {
 	padding-left: 10px;
