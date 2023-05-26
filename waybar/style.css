@@ -41,6 +41,7 @@ tooltip {
 #custom-updater,
 #custom-menulogo,
 #custom-powermenu,
+#cpu,
 #disk,
 #memory,
 #temperature,
@@ -117,6 +118,10 @@ tooltip {
 	padding-left: 10px;
 	padding-right: 0px;
 	border-radius: 10px 0px 0px 10px;
+}
+#cpu{
+	padding-left: 10px;
+	padding-right: 0px;
 }
 #disk {
 	padding-left: 10px;
