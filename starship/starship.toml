@@ -1,18 +1,18 @@
 palette="catppuccin_mocha"
 
 format = """
-[┌─](fg:surface2)\
-[](fg:surface2)\
+ [](bg:surface2 fg:surface2)\
 [](bg:surface1 fg:surface1)\
 [](bg:surface0 fg:surface0)\
 $os\
 $directory\
 $time\
-$fill\
+"""
+
+right_format = """
 $git_branch\
 $git_status\
 $cmd_duration
-[└─ ](fg:surface2)
 """
 
 # Disable the blank line at the start of the prompt
@@ -40,7 +40,7 @@ truncation_symbol = "…/"
 disabled=false
 time_format="%R" # Hour:Minute Format
 style="bg:mauve fg:crust"
-format ='[  $time ]($style)[](fg:mauve)'
+format ='[  $time ]($style)[ ](fg:mauve)'
 
 [fill]
 symbol=" "
