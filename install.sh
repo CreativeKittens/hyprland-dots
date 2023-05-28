@@ -50,7 +50,7 @@ if [[ $THME == "Y" || $THME == "y" ]]; then
    yay -S --noconfirm  catppuccin-gtk-theme-mocha layan-cursor-theme-git papirus-icon-theme sddm-catppuccin-git
 fi
 
-read -n1 -rep 'Would you like to enable SDDM autologin? (y,n)' WIFI
+read -n1 -rep 'Would you like to enable SDDM ? (y,n)' WIFI
 if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
    LOC="/etc/sddm.conf"
    echo -e "[Theme]\nCurrent=catppuccin" | sudo tee -a $LOC
@@ -80,7 +80,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
    cp -R ./user-dirs.dirs ~/.config/
    cp -R ./user-dirs.locale ~/.config/
    cp -R ./electron-flags.conf ~/ 
-   cp -R ./zshenv ~/
+   cp -R ./.zshenv ~/
 
    echo -e "making neccessary dir...\n"
 
@@ -95,9 +95,9 @@ fi
 
 read -n1 -rep "Is there any additional package you want to install? (y, n)" ADD 
 if [[ $COM == "Y" || $COM == "y" ]]; then
-   echo -e "\nEnter your additional package with space e.g ~ ripgrep docker"
+   echo -e "\nEnter your additional package with space e.g (ripgre, docker)"
    read -n1 -rep "Enter your package" PAC
-
+   
    yay --noconfirm $PAC
 fi
 
