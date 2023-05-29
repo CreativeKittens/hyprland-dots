@@ -16,11 +16,11 @@ $cmd_duration
 """
 
 # Disable the blank line at the start of the prompt
-add_newline = false
+add_newline = true
 
 [os]
 disabled=false
-format="[](bg:surface0 fg:red)[󰄛](bg:red fg:crust bold)[](bg:pink fg:red)"
+format="[](bg:surface0 fg:red)[󰄛 ](bg:red fg:crust bold)[](bg:pink fg:red)"
 
 [directory]
 disabled=false
@@ -41,9 +41,6 @@ disabled=false
 time_format="%R" # Hour:Minute Format
 style="bg:mauve fg:crust"
 format ='[  $time ]($style)[ ](fg:mauve)'
-
-[fill]
-symbol=" "
 
 [git_status]
 format=" [$all_status$ahead_behind]($style) "
