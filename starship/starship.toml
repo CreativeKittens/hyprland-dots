@@ -1,14 +1,14 @@
 palette="catppuccin_mocha"
+# [ ┌─](fg:surface2)\
+   # [ └─ ](fg:surface2)
 
 format = """
-[ ┌─](fg:surface2)\
 [](fg:surface2)\
 [ ](bg:surface1 fg:surface1)\
 [ ](bg:surface0 fg:surface0)\
 $os\
 $directory\
 $time
-[ └─ ](fg:surface2)
 """
 
 right_format = """

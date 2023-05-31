@@ -1,4 +1,5 @@
 #!/bin/bash
+# This installation script is stolen and modified from https://github.com/ChrisTitusTech/hyprland-titus since i don't understand bash scripting
 
 #### Check for yay ####
 ISYAY=/sbin/yay
@@ -20,7 +21,8 @@ else
    fi
 fi
 
-read -n1 -rep 'Would you like to install core packages? (Hyprland, kitty, thunar, waybar..etc) (y,n)' INST
+# Core packages
+read -n1 -rep 'Would you like to install core packages? (Hyprland, kitty, thunar, waybar..etc) (y,n) ' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
    yay -R --noconfirm swaylock waybar
    yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior \
@@ -37,7 +39,8 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
    sudo systemctl enable bluetooth
 fi
 
-read -n1 -rep 'Would you like to install required font? (Nerd font ..etc) (y,n)' FNT
+# Option to install font
+read -n1 -rep 'Would you like to install required font? (Nerd font ..etc) (y,n) ' FNT
 if [[ $FNT == "Y" || $FNT == "y" ]]; then
    yay -S --noconfirm otf-sora ttf-nerd-fonts-symbols-common otf-firamono-nerd inter-font    \
       ttf-fantasque-nerd noto-fonts noto-fonts-emoji ttf-comfortaa  \
@@ -45,12 +48,13 @@ if [[ $FNT == "Y" || $FNT == "y" ]]; then
       adobe-source-code-pro-fonts ttf-fira-code ttf-ms-win11-auto ttf-fira-code plus-jakarta-sans-font
 fi
 
-read -n1 -rep 'Would you like to install theme components? (GTK Theme, cursor, icons...etc) (y,n)' THME
+# Theme package
+read -n1 -rep 'Would you like to install theme components? (GTK Theme, cursor, icons...etc) (y,n) ' THME
 if [[ $THME == "Y" || $THME == "y" ]]; then
-   yay -S --noconfirm  catppuccin-gtk-theme-mocha layan-cursor-theme-git papirus-icon-theme sddm-catppuccin-git
+   yay -S --noconfirm catppuccin-gtk-theme-mocha layan-cursor-theme-git papirus-icon-theme sddm-catppuccin-git
 fi
 
-read -n1 -rep 'Would you like to enable SDDM ? (y,n)' WIFI
+read -n1 -rep 'Would you like to enable SDDM ? (y,n) ' WIFI
 if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
    LOC="/etc/sddm.conf"
    echo -e "[Theme]\nCurrent=catppuccin" | sudo tee -a $LOC
@@ -60,7 +64,7 @@ if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
    sleep 3
 fi
 
-read -n1 -rep 'Would you like to copy config files? (y,n)' CFG
+read -n1 -rep 'Would you like to copy config files? (y,n) ' CFG
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
    echo -e "Copying config files...\n"
    cp -R ./btop ~/.config/
@@ -74,7 +78,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
    cp -R ./wlogout ~/.config/
    cp -R ./neofetch ~/.config/
    cp -R ./starship ~/.config/
-   co -R ./dunst ~/.config/
+   cp -R ./dunst ~/.config/
    cp -R ./zsh ~/.config/
    cp -R ./scripts ~/.config/
    cp -R ./user-dirs.dirs ~/.config/
@@ -88,15 +92,15 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
    touch ~/.cache/zsh/.histfile
 fi
 
-read -n1 -rep 'Would you like to install common tools? (web browser, pdf viewer, vlc) (y,n)' COM
+read -n1 -rep 'Would you like to install common tools? (web browser, pdf viewer, vlc) (y,n) ' COM
 if [[ $COM == "Y" || $COM == "y" ]]; then
-   yay -S --noconfirm firefox-bin firefox-nightly-bin zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-pdf-poppler zathura-ps vlc flameshot-git
+   yay -S --noconfirm firefox-bin firefox-nightly-bin celluloid-git flameshot-git evince-git
 fi
 
-read -n1 -rep "Is there any additional package you want to install? (y, n)" ADD 
+read -n1 -rep "Is there any additional package you want to install? (y,n) " ADD 
 if [[ $COM == "Y" || $COM == "y" ]]; then
-   echo -e "\nEnter your additional package with space e.g (ripgre, docker)"
-   read -n1 -rep "Enter your package" PAC
+   echo -e "\nEnter your additional package with space e.g (ripgrep, docker)"
+   read -n1 -rep "Enter your package here: " PAC
    
    yay --noconfirm $PAC
 fi
