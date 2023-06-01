@@ -103,7 +103,7 @@ if [[ $COM == "Y" || $COM == "y" ]]; then
    yay -S --noconfirm firefox-bin firefox-nightly-bin celluloid-git flameshot-git evince-git
 fi
 
-read -n1 -rep "Is there any additional package you want to install? (y,n) " ADD 
+read -r -rep "Is there any additional package you want to install? (y,n) " ADD 
 if [[ $COM == "Y" || $COM == "y" ]]; then
    echo -e "\nEnter your additional package with space e.g (ripgrep, docker)"
    read -n1 -rep "Enter your package here: " PAC
