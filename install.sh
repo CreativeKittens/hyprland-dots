@@ -27,9 +27,9 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
    yay -R --noconfirm swaylock waybar
    yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior \
       rofi rofi-calc rofi-emoji pavucontrol thunar cliphist gvfs gvfs-mtp network-manager-applet \
-      swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl bluez bluez-utils blueman nm-applet \
+      swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl bluez bluez-utils blueman \
       noise-suppression-for-voice thunar-archive-plugin file-roller kitty neofetch ntfs-3g \
-      waybar-hyprland-git xdg-desktp-portal-hyprland dunst cava btop wlogout swaylock-effects sddm-git pamixer \
+      waybar-hyprland-git xdg-desktop-portal-hyprland dunst cava btop wlogout swaylock-effects sddm-git pamixer \
       nwg-look-bin xdg-user-dirs
 
    echo -e "Changing shell to zsh"
@@ -62,8 +62,6 @@ if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
    echo -e "[Theme]\nCurrent=catppuccin" | sudo tee -a $LOC
    echo -e "\n"
    echo -e "Enable SDDM service...\n"
-   setfacl -m u:sddm:x ~/
-   setfacl -m u:sddm:r ~/.face.icon
 
    sudo systemctl enable sddm
    sleep 3
@@ -96,6 +94,8 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
    mkdir ~/.cache/zsh
    touch ~/.cache/zsh/.histfile
+   setfacl -m u:sddm:x ~/
+   setfacl -m u:sddm:r ~/.face.icon
 fi
 
 read -n1 -rep 'Would you like to install common tools? (web browser, pdf viewer, vlc) (y,n) ' COM
@@ -103,7 +103,7 @@ if [[ $COM == "Y" || $COM == "y" ]]; then
    yay -S --noconfirm firefox-bin firefox-nightly-bin celluloid-git flameshot-git evince-git
 fi
 
-read -r -rep "Is there any additional package you want to install? (y,n) " ADD 
+read -r "Is there any additional package you want to install? (y,n) " ADD 
 if [[ $COM == "Y" || $COM == "y" ]]; then
    echo -e "\nEnter your additional package with space e.g (ripgrep, docker)"
    read -n1 -rep "Enter your package here: " PAC

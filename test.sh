@@ -1,3 +1,3 @@
-read -n1 TEST
+read -r TEST
 
 echo $TEST
