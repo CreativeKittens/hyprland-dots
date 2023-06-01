@@ -43,7 +43,7 @@ fi
 read -n1 -rep 'Would you like to install required font? (Nerd font ..etc) (y,n) ' FNT
 if [[ $FNT == "Y" || $FNT == "y" ]]; then
    yay -S --noconfirm otf-sora ttf-nerd-fonts-symbols-common otf-firamono-nerd inter-font    \
-      ttf-fantasque-nerd noto-fonts noto-fonts-emoji ttf-comfortaa  \
+      ttf-fantasque-nerd noto-fonts noto-fonts-emoji ttf-comfortaa adobe-source-han-sans-kr-fonts otf-kopubworld adobe-source-han-sans-cn-fonts\
       ttf-jetbrains-mono-nerd ttf-icomoon-feather ttf-iosevka-nerd ttf-roboto  \
       adobe-source-code-pro-fonts ttf-fira-code ttf-ms-win11-auto ttf-fira-code plus-jakarta-sans-font
 fi
