@@ -96,6 +96,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
    touch ~/.cache/zsh/.histfile
    setfacl -m u:sddm:x ~/
    setfacl -m u:sddm:r ~/.face.icon
+   LC_ALL=C xdg-user-dirs-update --force
 fi
 
 read -n1 -rep 'Would you like to install common tools? (web browser, pdf viewer, vlc) (y,n) ' COM
