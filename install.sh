@@ -84,6 +84,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
    cp -R ./dunst ~/.config/
    cp -R ./zsh ~/.config/
    cp -R ./scripts ~/.config/
+   cp -R ./nvim/ ~./.config/
    cp -R ./user-dirs.dirs ~/.config/
    cp -R ./user-dirs.locale ~/.config/
    cp -R ./electron-flags.conf ~/ 

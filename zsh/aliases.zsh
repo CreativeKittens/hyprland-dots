@@ -12,7 +12,7 @@ alias ..="cd .."
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e" 
 alias mkdir="mkdir -p"
 alias fm='thunar'
-alias cleanpac='sudo pacman -Rns $(pacman -Qtdq); yay -c'
+alias cleanpac='sudo pacman -Rns $(pacman -Qtdq) && yay -Sc'
 alias installed="grep -i installed /var/log/pacman.log"
 alias ls="exa --color=auto --icons"
 alias l="ls -l"
