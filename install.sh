@@ -60,6 +60,9 @@ if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
    echo -e "[Theme]\nCurrent=catppuccin" | sudo tee -a $LOC
    echo -e "\n"
    echo -e "Enable SDDM service...\n"
+   setfacl -m u:sddm:x ~/
+   setfacl -m u:sddm:r ~/.face.icon
+
    sudo systemctl enable sddm
    sleep 3
 fi
@@ -85,6 +88,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
    cp -R ./user-dirs.locale ~/.config/
    cp -R ./electron-flags.conf ~/ 
    cp -R ./.zshenv ~/
+   cp -R ./.face.icon ~/
 
    echo -e "making neccessary dir...\n"
 
