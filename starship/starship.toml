@@ -3,22 +3,27 @@ palette="catppuccin_mocha"
    # [ └─ ](fg:surface2)
 
 format = """
- [](fg:surface2)\
-[ ](bg:surface1 fg:surface1)\
-[ ](bg:surface0 fg:surface0)\
+ [](fg:mauve)\
+$username\
+$git_branch\
+[](bg:surface0 fg:surface1)\
+[](bg:surface0 fg:surface0)\
 $os\
 $directory\
 $time
 """
 
 right_format = """
-$git_branch\
-$git_status\
 $cmd_duration
 """
 
 # Disable the blank line at the start of the prompt
 add_newline = true
+
+[username]
+disabled=false
+show_always=true
+format="[akbarsani](bg:mauve fg:crust)[](bg:surface1 fg:mauve)"
 
 [os]
 disabled=false
@@ -43,6 +48,10 @@ disabled=false
 time_format="%R" # Hour:Minute Format
 style="bg:mauve fg:crust"
 format ='[  $time ]($style)[ ](fg:mauve)'
+
+[git_branch]
+always_show_remote = true
+format="[ 󰘬 $branch on  $remote_branch](bg:surface1 fg:lavender)"
 
 [git_status]
 format=" [$all_status$ahead_behind]($style) "
@@ -74,7 +83,7 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 min_time=1
 disabled=false
 style="bg:mauve fg:crust"
-format="[](fg:surface0)[ ](bg:surface0 fg:mauve)[ $duration]($style)[](fg:mauve)"
+format="[](fg:surface0)[󱫫 ](bg:surface0 fg:mauve)[ $duration]($style)[](fg:mauve)"
 
 [palettes.catppuccin_mocha]
 rosewater="#f5e0dc"
