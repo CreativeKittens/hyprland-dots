@@ -1,40 +1,47 @@
-palette="catppuccin_mocha"
-# [ ┌─](fg:surface2)\
-   # [ └─ ](fg:surface2)
+palette = "catppuccin_mocha"
 
 format = """
- [](fg:mauve)\
-$username\
-$git_branch\
-[](bg:surface0 fg:surface1)\
-[](bg:surface0 fg:surface0)\
+ [╭─](fg:pink)\    
 $os\
 $directory\
+$git_branch\
+[](bg:surface2 fg:surface1)\
+$git_status\
+[](bg:pink fg:surface2)\
+$deno\
+$docker_context\
+$java\
+$lua\
+$nodejs\
+$php\
+$python\
+$rust\
+[](bg:red fg:pink)\
 $time
+ [╰─ ](fg:pink) 
 """
 
-right_format = """
+right_format ="""
 $cmd_duration
 """
 
-# Disable the blank line at the start of the prompt
 add_newline = true
 
-[username]
-disabled=false
-show_always=true
-format="[akbarsani](bg:mauve fg:crust)[](bg:surface1 fg:mauve)"
-
 [os]
-disabled=false
-format="[](bg:surface0 fg:red)[󰄛 ](bg:red fg:crust bold)[](bg:pink fg:red)"
+disabled = false
+style = "bold bg:pink fg:crust"
+format = "[](fg:pink)[$symbol]($style)[akbar]($style)[](bg:surface0 fg:pink)"
+
+[os.symbols]
+Arch = "󰄛 "
 
 [directory]
-disabled=false
-style="bg:pink fg:crust"
-format="[ $path]($style)[](bg:mauve fg:pink)"
-truncation_length = 3
-truncation_symbol = "…/"
+disabled = false
+style = "bg:surface0 fg:lavender"
+read_only_style = "bg:surface0 fg:lavender"
+read_only = "󰌾"
+format = "[ $path]($style)[$read_only]($read_only_style)[](bg:surface1 fg:surface0)"
+truncation_symbol = ".../"
 
 [directory.substitutions]
 "Documents" = " "
@@ -43,72 +50,96 @@ truncation_symbol = "…/"
 "Pictures" = " "
 "Videos"=" "
 
-[time]
-disabled=false
-time_format="%R" # Hour:Minute Format
-style="bg:mauve fg:crust"
-format ='[  $time ]($style)[ ](fg:mauve)'
-
 [git_branch]
 always_show_remote = true
-format="[ 󰘬 $branch on  $remote_branch](bg:surface1 fg:lavender)"
+disabled = false
+symbol = ""
+style = "bg:surface1 fg:pink"
+format = "[ $symbol $branch ( $remote_branch)]($style)"
 
 [git_status]
-format=" [$all_status$ahead_behind]($style) "
-style="fg:mauve"
 conflicted="="
+diverged="⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date=" 󰚰 "
+stashed=""
+untracked="?${count}"
 ahead="⇡${count}"
 behind="⇣${count}"
-diverged="⇕⇡${ahead_count}⇣${behind_count}"
-up_to_date="󰚰"
-untracked="?${count}"
-stashed=""
 modified="!${count}"
 staged="+${count}"
 renamed="»${count}"
 deleted="󰛌${count}"
+style="fg:mauve bg:surface2"
+format="[ $all_status$ahead_behind]($style)"
 
-[git_state]
-rebase = "REBASING"
-merge =	"MERGING"
-revert = "REVERTING"
-cherry_pick = "CHERRY-PICKING"
-bisect = "BISECTING"
-am = "AM"
-am_or_rebase = "AM/REBASE"
-style =	"yellow"
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bold bg:red fg:crust"
+format = "[  $time ]($style)[](fg:red)"
 
 [cmd_duration]
-min_time=1
-disabled=false
-style="bg:mauve fg:crust"
-format="[](fg:surface0)[󱫫 ](bg:surface0 fg:mauve)[ $duration]($style)[](fg:mauve)"
+min_time = 1
+disabled = false
+style = "bg:mauve fg:crust"
+format = "[](fg:surface0)[󱫫 ](bg:surface0 fg:mauve)[ $duration]($style)[](fg:mauve)"
+
+[deno]
+style = "bold bg:pink fg:crust"
+format = '[ via 🦕 $version]($style)'
+
+[docker_context]
+style = "bold bg:pink fg:crust"
+format = '[ via 󰡨 $version]($style)'
+
+[java]
+style = "bold bg:pink fg:crust"
+format = '[ via  $version]($style)' 
+
+[lua]
+style = "bold bg:pink fg:crust"
+format = '[ via  $version]($style)'
+
+[nodejs]
+style = "bold bg:pink fg:crust"
+format = '[ via 󰎙 $version]($style)'
+
+[php]
+style = "bold bg:pink fg:crust"
+format = '[ via  $version]($style)'
+
+[python]
+style = "bold bg:pink fg:crust"
+format = '[ via  $version]($style)'
+
+[rust]
+style = "bold bg:pink fg:crust"
+format = '[ via  $version]($style)'
 
 [palettes.catppuccin_mocha]
-rosewater="#f5e0dc"
-flamingo="#f2cdcd"
-pink="#f5c2e7"
-mauve="#cba6f7"
-red="#f38ba8"
-maroon="#eba0ac"
-peach="#fab387"
-yellow="#f9e2af"
-green="#a6e3a1"
-teal="#94e2d5"
-sky="#89dceb"
-sapphire="#74c7ec"
-blue="#89b4fa"
-lavender="#b4befe"
-text="#cdd6f4"
-subtext1="#bac2de"
-subtext0="#a6adc8"
-overlay2="#9399b2"
-overlay1="#7f849c"
-overlay0="#6c7086"
-surface2="#585b70"
-surface1="#45475a"
-surface0="#313244"
-base="#1e1e2e"
-mantle="#181825"
-crust="#11111b"
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
