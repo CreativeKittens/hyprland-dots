@@ -18,7 +18,7 @@ $python\
 $rust\
 [](bg:red fg:pink)\
 $time
- [╰─ ](fg:pink) 
+ [╰─ ](fg:pink)
 """
 
 right_format ="""
@@ -37,7 +37,7 @@ Arch = "󰄛 "
 
 [directory]
 disabled = false
-style = "bg:surface0 fg:lavender"
+style = "bg:surface0 fg:text"
 read_only_style = "bg:surface0 fg:lavender"
 read_only = "󰌾"
 format = "[ $path]($style)[$read_only]($read_only_style)[](bg:surface1 fg:surface0)"
@@ -54,7 +54,7 @@ truncation_symbol = ".../"
 always_show_remote = true
 disabled = false
 symbol = ""
-style = "bg:surface1 fg:pink"
+style = "bg:surface1 fg:text"
 format = "[ $symbol $branch ( $remote_branch)]($style)"
 
 [git_status]
@@ -69,7 +69,7 @@ modified="!${count}"
 staged="+${count}"
 renamed="»${count}"
 deleted="󰛌${count}"
-style="fg:mauve bg:surface2"
+style="fg:text bg:surface2"
 format="[ $all_status$ahead_behind]($style)"
 
 [time]
