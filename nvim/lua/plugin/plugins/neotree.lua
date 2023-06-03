@@ -46,6 +46,7 @@ return {
 					"thumbs.db",
 				},
 			},
+			use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
 			follow_current_file = true,
 			hijack_netrw_behavior = "open_default",
 		},

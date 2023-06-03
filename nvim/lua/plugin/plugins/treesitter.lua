@@ -6,6 +6,7 @@ return {
 		"windwp/nvim-ts-autotag",
 		"HiPhish/nvim-ts-rainbow2",
 		"JoosepAlviste/nvim-ts-context-commentstring",
+		"nvim-treesitter/nvim-treesitter-context",
 		{
 			"numToStr/Comment.nvim",
 			opts = {

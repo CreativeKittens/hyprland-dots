@@ -35,6 +35,7 @@ return {
 				enabled = true,
 				colored_indent_levels = false,
 			},
+			treesitter_context = true,
 			notify = true,
 			ts_rainbow2 = true,
 			native_lsp = {

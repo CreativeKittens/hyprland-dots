@@ -8,8 +8,8 @@ return {
 	keys = {
 		{ "<S-k>", ":BufferLineCycleNext<CR>", silent = true },
 		{ "<S-j>", ":BufferLineCyclePrev<CR>", silent = true },
-		{ "<S-l>", ":bnext<CR>", silent = true },
-		{ "<S-h>", ":bprevious<CR>", silent = true },
+		{ "<S-l>", ":bnext<CR>", silent = true, remap = true },
+		{ "<S-h>", ":bprevious<CR>", silent = true, remap = true },
 		{
 			"<leader>bd",
 			function()
