@@ -40,7 +40,7 @@ return {
 				lualine_c = {
 					{
 						"diagnostics",
-						update_in_insert = false,
+						update_in_insert = true,
 						symbols = {
 							error = " ",
 							warn = "󱧡 ",
