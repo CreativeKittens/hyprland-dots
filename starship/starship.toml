@@ -39,7 +39,7 @@ Arch = "󰄛 "
 disabled = false
 style = "bg:surface0 fg:text"
 read_only_style = "bg:surface0 fg:lavender"
-read_only = "󰌾"
+read_only = " 󰌾 "
 format = "[ $path]($style)[$read_only]($read_only_style)[](bg:surface1 fg:surface0)"
 truncation_symbol = ".../"
 
