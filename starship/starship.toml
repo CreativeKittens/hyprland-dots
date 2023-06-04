@@ -17,15 +17,17 @@ $php\
 $python\
 $rust\
 [](bg:red fg:pink)\
-$time
+$time\
+$fill\
+$cmd_duration
  [╰─ ](fg:pink)
 """
 
-right_format ="""
-$cmd_duration
-"""
 
 add_newline = true
+
+[fill]
+symbol = " "
 
 [os]
 disabled = false
