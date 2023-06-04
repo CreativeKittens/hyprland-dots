@@ -27,9 +27,9 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
    yay -R --noconfirm swaylock waybar
    yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior \
       rofi rofi-calc rofi-emoji pavucontrol thunar cliphist gvfs gvfs-mtp network-manager-applet \
-      swaybg grimblast-git ffmpegthumbnailer tumbler playerctl brightnessctl bluez bluez-utils blueman \
+      swaybg grim ffmpegthumbnailer tumbler playerctl brightnessctl bluez bluez-utils blueman \
       noise-suppression-for-voice thunar-archive-plugin file-roller kitty hyprpicker neofetch ntfs-3g \
-      waybar-hyprland-git xdg-desktop-portal-hyprland dunst cava btop wlogout swaylock-effects sddm-git pamixer \
+      waybar-hyprland-git xdg-desktop-portal-hyprland-git dunst cava btop wlogout swaylock-effects sddm-git pamixer \
       nwg-look-bin xdg-user-dirs
 
    echo -e "Changing shell to zsh"
@@ -84,7 +84,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
    cp -R ./dunst ~/.config/
    cp -R ./zsh ~/.config/
    cp -R ./scripts ~/.config/
-   cp -R ./nvim/ ~./.config/
+   cp -R ./nvim/ ~/.config/
    cp -R ./user-dirs.dirs ~/.config/
    cp -R ./user-dirs.locale ~/.config/
    cp -R ./electron-flags.conf ~/ 
@@ -97,21 +97,13 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
    touch ~/.cache/zsh/.histfile
    setfacl -m u:sddm:x ~/
    setfacl -m u:sddm:r ~/.face.icon
-   LC_ALL=C xdg-user-dirs-update --force
+
    xdg-mime default thunar.desktop inode/directory
 fi
 
-read -n1 -rep 'Would you like to install common tools? (web browser, pdf viewer, vlc) (y,n) ' COM
+read -n1 -rep 'Would you like to install common tools? (web browser, pdf viewer) (y,n) ' COM
 if [[ $COM == "Y" || $COM == "y" ]]; then
    yay -S --noconfirm firefox-bin firefox-nightly-bin celluloid-git flameshot-git evince-git
-fi
-
-read -r "Is there any additional package you want to install? (y,n) " ADD 
-if [[ $COM == "Y" || $COM == "y" ]]; then
-   echo -e "\nEnter your additional package with space e.g (ripgrep, docker)"
-   read -n1 -rep "Enter your package here: " PAC
-   
-   yay --noconfirm $PAC
 fi
 
 echo -e "Script had completed.\n"
