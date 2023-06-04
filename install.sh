@@ -25,7 +25,7 @@ fi
 read -n1 -rep 'Would you like to install core packages? (Hyprland, kitty, thunar, waybar..etc) (y,n) ' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
    yay -R --noconfirm swaylock waybar
-   yay -S --noconfirm hyprland-git polkit-gnome zsh ffmpeg neovim viewnior \
+   yay -S --noconfirm hyprland polkit-gnome zsh ffmpeg neovim viewnior \
       rofi rofi-calc rofi-emoji pavucontrol thunar cliphist gvfs gvfs-mtp network-manager-applet \
       swaybg grim ffmpegthumbnailer tumbler playerctl brightnessctl bluez bluez-utils blueman \
       noise-suppression-for-voice thunar-archive-plugin file-roller kitty hyprpicker neofetch ntfs-3g \
