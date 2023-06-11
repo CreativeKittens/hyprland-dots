@@ -1,40 +1,35 @@
 @import "mocha.css";
-/* @import "macchiato.css";*/
 
 * {
-  border: none;
-  border-radius: 0px;
-  font-family:  SF Pro Display,sans-serif,Monospace;
-  font-size: 13px;
-  font-weight: bold;
-  min-height: 0;
+	border: none;
+	border-radius: 0px;
+	font-family: Roboto, monospace;
+	font-size: 13px;
+	font-weight: 600;
+	min-height: 0;
 }
-
 window#waybar {
-  color: @text;
-  transition-property: background-color;
-  transition-duration: .5s;
-  background: transparent;
+	color: @text;
+	transition-property: background-color;
+	transition-duration: 0.5s;
+	background: transparent;
 }
-
-window#waybar > box{
+window#waybar > box {
 	background-color: alpha(@base, 1);
-	border-radius: 16px;
 	margin-bottom: 5px;
-	padding: 5px;
-	box-shadow: 0px 1px 3px alpha(@mantle, 1);
+	padding: 5px 5px;
+	box-shadow: 0px 3px 3px alpha(@crust, 0.8);
+   border-radius: 12px;
 }
-
 window#waybar.hidden {
-  opacity: 0.2;
+	opacity: 0.2;
 }
-
 tooltip {
-  background: @base;
-  border-radius: 10px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: @surface0;
+	background: @base;
+	border-radius: 10px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: @surface0;
 }
 
 #clock,
@@ -44,114 +39,174 @@ tooltip {
 #pulseaudio,
 #custom-media,
 #custom-updater,
+#custom-menulogo,
 #custom-powermenu,
-#tray{
+#cpu,
+#disk,
+#memory,
+#temperature,
+#tray {
 	padding-right: 10px;
 	background: @surface0;
 	color: @lavender;
 }
 
-#custom-powermenu {
-  padding-left: 10px;
-  color: @crust;
-  border-radius: 12px;
-  background-image: linear-gradient(45deg, @mauve 0%, @pink 52%, @red 90%);
-}
-
-#custom-menu{
+/* Left Module */
+#custom-menulogo {
 	color: @crust;
-	padding: 0 10px;
-	border-radius: 12px;
+	padding-right: 10px;
+	padding-left: 5px;
+	padding-top: 0px;
+	border-radius: 8px 0px 0px 8px;
+	font-size: 20px;
+	background-image: linear-gradient(-45deg, @mauve 0%, @pink 52%, @red 90%);
+}
+#custom-menu {
+	color: @crust;
+	padding-right: 10px;
+	border-radius: 0px 12px 12px 0px;
 	background-image: linear-gradient(45deg, @mauve 0%, @pink 52%, @red 90%);
 	margin-right: 5px;
 }
-
 #workspaces {
-	margin-right: 5px;
 	border-radius: 10px;
 	background: @surface0;
+	margin-right: 5px;
+	padding: 0 5px;
 }
-
 #workspaces button {
-  border-radius: 10px;
-	padding: 8px;
+	border-radius: 30px;
+	padding: 8px 11px 8px 7px;
+	transition: 0.3s;
 }
-
 #workspaces button.active {
+	box-shadow: inherit;
+	border: 0px;
+	background: @pink;
+	color: @surface1;
+}
+#workspaces button:hover {
+	background: transparent;
+	box-shadow: inherit;
+	border: 0px;
 	color: @mauve;
 }
-#workspaces button:hover {                                                      
-  background: transparent;                                                    
-  box-shadow: inherit;
-  color: @mauve;
-}  
-
 #clock {
 	padding-left: 10px;
-	border-radius: 16px;
+	margin-right: 5px;
+	border-radius: 10px;
+}
+#custom-media {
+	border-radius: 10px;
+	padding: 0 10px;
+	margin-right: 40px;
 }
 
+/* Center Module */
+#window {
+	margin: 0px;
+}
+
+/* Right Module */
+#tray {
+	padding-left: 10px;
+	margin-right: 5px;
+	margin-left: 40px;
+	border-radius: 10px;
+}
+#temperature {
+	padding-left: 10px;
+	padding-right: 0px;
+	border-radius: 10px 0px 0px 10px;
+}
+#cpu{
+	padding-left: 10px;
+	padding-right: 0px;
+}
+#disk {
+	padding-left: 10px;
+	padding-right: 0px;
+	border-radius: 10px 0px 0px 10px;
+}
+#temperature.critical {
+	color: @red;
+}
+#memory {
+	padding-left: 10px;
+	padding-right: 0px;
+}
+#custom-updater {
+	padding-left: 10px;
+	padding-right: 0px;
+}
 #battery {
 	padding-left: 10px;
 	margin-right: 5px;
 	border-radius: 0px 10px 10px 0px;
 }
-
-#battery.charging, #battery.plugged {
+@keyframes warning {
+	to {
+		color: alpha(@yellow, 0.5);
+	}
 }
-
-@keyframes blink {
-  to {
-    color: @red;
-  }
+@keyframes critical {
+	to {
+		color: alpha(@red, 0.3);
+	}
 }
-
-#battery.critical{
+@keyframes charging {
+	to {
+		color: alpha(@green, 0.5);
+	}
+}
+#battery.charging,
+#battery.plugged {
+	color: @yellow;
+	animation-name: charging;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+#battery.critical {
 	color: @red;
 }
-
 #battery.critical:not(.charging) {
 	color: @red;
+	animation-name: warning;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
-
-#battery.warning{
+#battery.warning {
 	color: @yellow;
+	animation-name: warning;
+	animation-duration: 0.75s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
-
 #backlight {
 	padding-left: 10px;
 	border-radius: 10px 0px 0px 10px;
 }
-
-#network {
-	border-radius: 0px 10px 10px 0px;
-}
-
-#network.disconnected {
-	color: alpha(@lavender, 0.7);
-}
-
 #pulseaudio.muted:not(.microphone) {
 	color: alpha(@lavender, 0.7);
 }
-
-#pulseaudio.microphone.source-muted{
-  color: alpha(@lavender, 0.7);
+#pulseaudio.microphone.source-muted {
+	color: alpha(@lavender, 0.7);
 }
-
-#custom-media {
-	border-radius: 10px;
-	padding: 0 10px;
+#network {
+	border-radius: 0px 10px 10px 0px;
 }
-
-#custom-updater {
-	padding-left: 10px;
-	padding-right: 0px;
-	border-radius: 10px 0px 0px 10px;
+#network.disconnected {
+	color: alpha(@lavender, 0.7);
 }
-
-#tray {
-	padding-left: 10px;
-	margin-right: 5px;
-	border-radius: 10px;
+#custom-powermenu {
+	padding: 0 14px 0px 10px;
+	color: @crust;
+	border-radius: 12px;
+	margin-left: 5px;
+	background-image: linear-gradient(45deg, @mauve 0%, @pink 52%, @red 90%);
 }

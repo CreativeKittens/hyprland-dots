@@ -6,118 +6,121 @@
 	"passtrough": false,
 	"gtk-layer-shell": true,
 	"margin": "5px 5px 0px 5px",
-	"modules-left": ["custom/menu", "tray", "wlr/workspaces", "custom/media"],
-	"modules-center": ["clock"],
+	"modules-left": [
+		"custom/menulogo",
+		"custom/menu",
+		"wlr/workspaces",
+		"clock",
+		"custom/media"
+	],
+	"modules-center": [""],
 	"modules-right": [
+		"tray",
+		// "temperature",
+      "disk",
+      "memory",
+      "cpu",
 		"custom/updater",
 		"battery",
 		"backlight",
 		"pulseaudio",
 		"pulseaudio#microphone",
-		"network"
-    //"custom/powermenu"
+		"network",
+		"custom/powermenu"
 	],
 
-	"wlr/workspaces": {
-		"format": "{icon}",
-		"on-click": "activate",
-		"format-icons": {
-			"1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "7": "",
-    	"8": "",	
-      "9": "",
-      "default": "",
-			"active": "",
-      "urgent": ""
-		},
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": []
-    }
-  },
-	"tray": {
-		"icon-size": 13,
-		"spacing": 10
-	},
-	"clock": {
-		"format": "{:  %R     %a, %B %d, %Y}",
-		"tooltip-format": "<tt><small>{calendar}</small></tt>"
-	},
-  "custom/powermenu": {
-    "format": "  Power",
-    "on-click": "killall wlogout ||  wlogout --protocol layer-shell -b 5 -T 400 -B 400"
-  },
-	"custom/menu": {
-		"format": "  Menu",
+	// Left Module
+	"custom/menulogo": {
+		"format": "󰄛",
 		"on-click": "killall rofi || rofi -show drun -theme ~/.config/rofi/runner.rasi"
 	},
-	"custom/updater": {
-		"format": " {}",
-		"exec": "yay -Qu | wc -l",
-		"interval": 15,
-		"on-click": "kitty -e yay -Syu" // update system
+	"custom/menu": {
+		"format": "Menu",
+		"on-click": "killall rofi || rofi -show drun -theme ~/.config/rofi/runner.rasi"
+	},
+	"wlr/workspaces": {
+		"format": "{icon}",
+		"on-click": "none",
+		"sort-by-number": true,
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "",
+			"6": "",
+			"7": "",
+			"8": "",
+			"9": "",
+			"10": "",
+			"default": "",
+			"active": "",
+			"urgent": ""
+		},
+		"persistent_workspaces": {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+			"6": [],
+			"7": [],
+			"8": [],
+			"9": [],
+			"10": []
+		}
+	},
+	"clock": {
+		"format": "{:   %R        %a, %B %d, %Y}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>"
 	},
 	"custom/media": {
 		"format": "{icon}  {}",
 		"return-type": "json",
 		"max-length": 25,
 		"format-icons": {
-			"spotify": "",
-			"default": ""
+			"spotify": " ",
+			"default": " "
 		},
 		"escape": true,
 		"exec": "$HOME/.config/scripts/waybar/mediaplayer.py 2> /dev/null",
 		"on-click": "playerctl play-pause"
 	},
-	"pulseaudio": {
-		"format": "{icon} {volume}%",
-		"tooltip": false,
-		"format-muted": "   Muted",
-		"on-click": "pamixer -t",
-		"on-scroll-up": "pamixer -i 5",
-		"on-scroll-down": "pamixer -d 5",
-		"scroll-step": 5,
-		"format-icons": {
-			"headphone": "󰋋 ",
-			"hands-free": "󰋋 ",
-			"headset": "󰋋 ",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": [" ", " ", " "]
-		},
-    "on-click-right": "killall pavucontrol || pavucontrol"
+
+	// Center Module
+	"hyprland/window": {
+		"format": "{}",
+		"separate-outputs": true
 	},
-	"pulseaudio#microphone": {
-		"format": "{format_source}",
-		"format-source": " {volume}%",
-		"format-source-muted": "  Muted",
-		"on-click": "pamixer --default-source -t",
-		"on-scroll-up": "pamixer --default-source -i 5",
-		"on-scroll-down": "pamixer --default-source -d 5",
-		"scroll-step": 5,
-    "on-click-right": "killall pavucontrol || pavucontrol"
+
+	// Right Module
+	"tray": {
+		"icon-size": 16,
+		"spacing": 10
+   }, 
+   "cpu":{
+      "format": "󰻠  {usage} %",
+      "interval": 10
+   },
+   "disk": {
+      "interval": 30,
+      "format": "󰋊  {used} / {total}"
+   },
+   "memory": {
+      "interval": 30,
+      "format": "󰍛  {percentage}%",
+      "max-length": 10
+   },
+   "temperature": {
+		"critical-threshold": 45,
+		"format-critical": "{temperatureC}°C 󱗗",
+		"format": "{temperatureC}°C"
 	},
-	"network": {
-		"format-wifi": "󰤨  ({bandwidthDownBytes}) {essid}",
-		"format-ethernet": "{ipaddr} ({bandwidthDownBytes})  ",
-		"tooltip-format": "{ifname} via {gwaddr}  ",
-    "max-length": 20,
-		"format-linked": "{ifname} (No IP)  ",
-		"format-disconnected": "No Internet ⚠",
-		"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	"custom/updater": {
+		"format": "󰇚 {}",
+		"exec": "(yay -Qua) | wc -l",
+		"interval": 720,
+		"on-click": "kitty -e yay -Syu" // update system
 	},
 	"battery": {
 		"interval": 60,
@@ -126,20 +129,58 @@
 			"critical": 15
 		},
 		"format": "{icon} {capacity}%",
-		"format-charging": "{capacity}% ",
+		"format-charging": "{capacity}% 󱐌 Charging",
 		"format-plugged": "{capacity}% ",
 		"format-alt": "{time} {icon}",
-		"format-icons": ["   ", "   ", "   ", "  ", "   "]
+		"format-icons": ["   ", "   ", "   ", "   ", "   "]
 	},
 	"backlight": {
 		"device": "intel_backlight",
 		"format": "{icon} {percent}%",
-		"format-icons": ["󰃞 ", "󰃟 ", "󰃝 ", "󰃠 "],
+		"format-icons": ["󰃞  ", "󰃟  ", "󰃝  ", "󰃠  "],
 		"on-scroll-up": "brightnessctl set +10 -n 50",
 		"on-scroll-down": "brightnessctl set 10- -n 50"
 	},
-	"hyprland/window": {
-		"format": "{}",
-		"separate-outputs": true
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"tooltip": false,
+		"format-muted": "󰝟  Muted",
+		"on-click": "pamixer -t",
+		"on-scroll-up": "pamixer -i 1",
+		"on-scroll-down": "pamixer -d 1",
+		"scroll-step": 5,
+		"format-icons": {
+			"headphone": "󰋋  ",
+			"hands-free": "󰋋  ",
+			"headset": "󰋋  ",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", " ", "  "]
+		},
+		"on-click-right": "killall pavucontrol || pavucontrol"
+	},
+	"pulseaudio#microphone": {
+		"format": "{format_source}",
+		"format-source": "󰍬 {volume}%",
+		"format-source-muted": "󰍭  Muted",
+		"on-click": "pamixer --default-source -t",
+		"on-scroll-up": "pamixer --default-source -i 1",
+		"on-scroll-down": "pamixer --default-source -d 1",
+		"scroll-step": 5,
+		"on-click-right": "killall pavucontrol || pavucontrol"
+	},
+	"network": {
+		"format-wifi": "󰤨  ({bandwidthDownBytes}) {essid}",
+		"format-ethernet": "{ipaddr} ({bandwidthDownBytes})  ",
+		"tooltip-format": "{ifname} via {gwaddr}  ",
+		"max-length": 20,
+		"format-linked": "{ifname} (No IP)  ",
+		"format-disconnected": "No Internet ⚠",
+		"format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+	"custom/powermenu": {
+		"format": "",
+		"on-click": "killall wlogout ||  wlogout --protocol layer-shell -b 5 -T 400 -B 400"
 	}
 }
