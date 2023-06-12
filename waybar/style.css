@@ -149,7 +149,11 @@ window#waybar.hidden {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
 #battery.warning {
+  color: @red;
+}
+#battery.warning:not(.charging) {
   color: @yellow;
   animation-name: warning;
   animation-duration: 0.75s;

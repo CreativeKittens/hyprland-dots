@@ -23,6 +23,7 @@ return {
 				"hrsh7th/cmp-path",
 				"hrsh7th/cmp-buffer",
 				"onsails/lspkind.nvim",
+				"tailwindcss-colorizer-cmp",
 			},
 		},
 		config = function()
@@ -65,6 +66,10 @@ return {
 						symbol_map = {
 							TypeParameter = "",
 						},
+						before = function(entry, vim_item)
+							vim_item = require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
+							return vim_item
+						end,
 					}),
 				},
 				sources = {
@@ -118,6 +123,8 @@ return {
 				"html",
 				"cssls",
 				"cssmodules_ls",
+				"tailwindcss",
+				"emmet_ls",
 				"tsserver",
 				"jsonls",
 				"lua_ls",
@@ -137,9 +144,12 @@ return {
 					timeout_ms = 10000,
 				},
 				servers = {
+					["jsonls"] = { "json", "jsonc" },
 					["null-ls"] = {
 						"html",
-						"csss",
+						"css",
+						"scss",
+						"json",
 						"javascript",
 						"typescript",
 						"javascriptreact",
@@ -165,7 +175,11 @@ return {
 				sources = {
 					-- Replace these with the tools you have installed
 					null_ls.builtins.formatting.prettier.with({
-						extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+						extra_args = {
+							"--no-semi",
+							"--single-quote",
+							"--jsx-single-quote",
+						},
 					}),
 					null_ls.builtins.diagnostics.eslint,
 					null_ls.builtins.formatting.stylua,
@@ -183,6 +197,16 @@ return {
 						vim.keymap.set("n", "<leader>ci", "<cmd>TypescriptAddMissingImports<cr>", { buffer = bufnr })
 					end,
 				},
+			})
+		end,
+	},
+
+	{
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		-- optionally, override the default options:
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({
+				color_square_width = 2,
 			})
 		end,
 	},

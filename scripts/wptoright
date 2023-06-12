@@ -1,0 +1,5 @@
+#!/bin/bash
+
+right_mon=$(hyprctl monitors -j | jq -r '.[] | select(.x > 0) | .name')
+
+exec hyprctl dispatch movecurrentworkspacetomonitor $right_mon
