@@ -103,7 +103,7 @@ fi
 
 read -n1 -rep 'Would you like to install common tools? (web browser, pdf viewer) (y,n) ' COM
 if [[ $COM == "Y" || $COM == "y" ]]; then
-  yay -S --noconfirm firefox-bin firefox-nightly-bin celluloid-git evince-git
+  yay -S --noconfirm firefox-bin brave firefox-nightly-bin celluloid-git evince-git
 fi
 
 echo -e "Script had completed.\n"
