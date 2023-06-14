@@ -23,7 +23,7 @@ return {
 				"hrsh7th/cmp-path",
 				"hrsh7th/cmp-buffer",
 				"onsails/lspkind.nvim",
-				"tailwindcss-colorizer-cmp",
+				"roobert/tailwindcss-colorizer-cmp.nvim",
 			},
 		},
 		config = function()
@@ -120,11 +120,8 @@ return {
 			lsp.ensure_installed({
 				-- Replace these with whatever servers you want to install
 				-- LSP'S
-				"html",
-				"cssls",
-				"cssmodules_ls",
+				"eslint",
 				"tailwindcss",
-				"emmet_ls",
 				"tsserver",
 				"jsonls",
 				"lua_ls",
@@ -140,7 +137,7 @@ return {
 			-- Enable format on save
 			lsp.format_on_save({
 				format_opts = {
-					async = false,
+					async = true,
 					timeout_ms = 10000,
 				},
 				servers = {
