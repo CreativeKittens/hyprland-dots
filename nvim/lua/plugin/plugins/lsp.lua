@@ -7,7 +7,16 @@ return {
 			-- This is where you modify the settings for lsp-zero
 			-- Note: autocompletion settings will not take effect
 
-			require("lsp-zero.settings").preset({})
+			require("lsp-zero.settings").preset({
+				manage_nvim_cmp = {
+					set_sources = "lsp",
+					set_basic_mappings = true,
+					set_extra_mappings = false,
+					use_luasnip = true,
+					set_format = true,
+					documentation_window = true,
+				},
+			})
 		end,
 	},
 
@@ -16,32 +25,23 @@ return {
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
 		dependencies = {
-			{
-				"L3MON4D3/LuaSnip",
-				"rafamadriz/friendly-snippets",
-				"saadparwaiz1/cmp_luasnip",
-				"hrsh7th/cmp-path",
-				"hrsh7th/cmp-buffer",
-				"onsails/lspkind.nvim",
-				"roobert/tailwindcss-colorizer-cmp.nvim",
-			},
+			{ "L3MON4D3/LuaSnip" },
+
+			-- Use lspkind
+			{ "onsails/lspkind.nvim" },
 		},
 		config = function()
+			-- Here is where you configure the autocompletion settings.
 			-- The arguments for .extend() have the same shape as `manage_nvim_cmp`:
 			-- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#manage_nvim_cmp
+
 			require("lsp-zero.cmp").extend()
+
 			-- And you can configure cmp even more, if you want to.
 			local cmp = require("cmp")
 			local cmp_action = require("lsp-zero.cmp").action()
 
-			require("luasnip.loaders.from_vscode").lazy_load()
-
 			cmp.setup({
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-					end,
-				},
 				mapping = {
 					["<C-k>"] = cmp.mapping.select_prev_item(),
 					["<C-j>"] = cmp.mapping.select_next_item(),
@@ -54,8 +54,12 @@ return {
 						c = cmp.mapping.close(),
 					}),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<Tab>"] = cmp_action.luasnip_supertab(),
-					["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
+					["<Tab>"] = cmp_action.tab_complete(),
+					["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
+				},
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
 				},
 				formatting = {
 					fields = { "abbr", "kind", "menu" },
@@ -66,25 +70,8 @@ return {
 						symbol_map = {
 							TypeParameter = "",
 						},
-						before = function(entry, vim_item)
-							vim_item = require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
-							return vim_item
-						end,
+						before = require("tailwindcss-colorizer-cmp").formatter,
 					}),
-				},
-				sources = {
-					{ name = "path" },
-					{ name = "nvim_lsp" },
-					{ name = "buffer", keyword_length = 3 },
-					{ name = "luasnip", keyword_length = 2 },
-				},
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
-				experimental = {
-					ghost_text = true,
-					native = true,
 				},
 			})
 		end,
@@ -104,40 +91,45 @@ return {
 					pcall(vim.cmd, "MasonUpdate")
 				end,
 			},
-			-- Null ls
 			{ "jose-elias-alvarez/null-ls.nvim" },
 			{ "jay-babu/mason-null-ls.nvim" },
 			{ "jose-elias-alvarez/typescript.nvim" },
 		},
 		config = function()
+			-- This is where all the LSP shenanigans will live
+
 			local lsp = require("lsp-zero")
 
 			lsp.on_attach(function(client, bufnr)
 				lsp.default_keymaps({ buffer = bufnr })
 			end)
 
-			-- Ensure install lsp
 			lsp.ensure_installed({
 				-- Replace these with whatever servers you want to install
-				-- LSP'S
-				"eslint",
+				"html",
+				"cssls",
 				"tailwindcss",
+				"cssmodules_ls",
 				"tsserver",
-				"jsonls",
-				"lua_ls",
-				"clangd",
-				"rust_analyzer",
-				"intelephense",
+				"eslint",
+
+				"marksman",
 				"yamlls",
-				"bashls",
+				"rust_analyzer",
+				"lua_ls",
+				"intelephense",
+				"sqlls",
+				"pyright",
+
 				"dockerls",
 				"docker_compose_language_service",
+				"bashls",
 			})
 
 			-- Enable format on save
 			lsp.format_on_save({
 				format_opts = {
-					async = true,
+					async = false,
 					timeout_ms = 10000,
 				},
 				servers = {
@@ -155,17 +147,21 @@ return {
 					},
 				},
 			})
-
-			--- LSP Configuration will live here ---
-			-- LUA
+			-- (Optional) Configure lua language server for neovim
 			require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
-			-- Skip tsserver and uses typescript
+			require("lspconfig").tsserver.setup({
+				on_init = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentFormattingRangeProvider = false
+				end,
+			})
+
 			lsp.skip_server_setup({ "tsserver" })
 
 			lsp.setup()
 
-			-- Null-ls stuff will live here
+			-- Null ls
 			local null_ls = require("null-ls")
 
 			null_ls.setup({
@@ -183,16 +179,26 @@ return {
 				},
 			})
 
-			require("mason-null-ls").setup({
-				ensure_installed = nil,
-				automatic_installation = true,
-			})
-
 			require("typescript").setup({
 				server = {
 					on_attach = function(client, bufnr)
+						-- You can find more commands in the documentation:
+						-- https://github.com/jose-elias-alvarez/typescript.nvim#commands
+
 						vim.keymap.set("n", "<leader>ci", "<cmd>TypescriptAddMissingImports<cr>", { buffer = bufnr })
 					end,
+				},
+			})
+
+			require("mason-null-ls").setup({
+				ensure_installed = nil,
+				automatic_installation = true, -- You can still set this to `true`
+				handlers = {
+					-- Here you can add functions to register sources.
+					-- See https://github.com/jay-babu/mason-null-ls.nvim#handlers-usage
+					--
+					-- If left empty, mason-null-ls will  use a "default handler"
+					-- to register all sources
 				},
 			})
 		end,

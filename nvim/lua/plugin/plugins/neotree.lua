@@ -1,8 +1,8 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v2.x",
+  event = "VimEnter",
 	name = "neo-tree",
-	event = "VimEnter",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -36,7 +36,6 @@ return {
 		filesystem = {
 			use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
 			follow_current_file = true,
-			hijack_netrw_behavior = "open_default",
 		},
 		buffers = {
 			follow_current_file = true, -- This will find and focus the file in the active buffer every

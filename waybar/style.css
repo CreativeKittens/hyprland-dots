@@ -94,6 +94,7 @@ window#waybar.hidden {
 }
 
 /* Module Right */
+#cpu,
 #memory,
 #disk {
   color: alpha(@lavender, 0.5);

@@ -2,6 +2,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	branch = false,
 	dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+  lazy = false,
 	keys = {
 		{ "<leader>ff", ":Telescope find_files<CR>" },
 		{ "<leader>fg", ":Telescope live_grep<CR>" },
