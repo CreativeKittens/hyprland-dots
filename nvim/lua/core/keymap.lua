@@ -4,10 +4,10 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 
 -- Navigation
-vim.keymap.set({ "n", "v" }, "h", "h")
-vim.keymap.set({ "n", "v" }, "j", "k")
-vim.keymap.set({ "n", "v" }, "k", "j")
-vim.keymap.set({ "n", "v" }, "l", "l")
+--[[ vim.keymap.set({ "n", "v" }, "h", "h") ]]
+--[[ vim.keymap.set({ "n", "v" }, "j", "k") ]]
+--[[ vim.keymap.set({ "n", "v" }, "k", "j") ]]
+--[[ vim.keymap.set({ "n", "v" }, "l", "l") ]]
 
 -- File management keybind
 vim.keymap.set({ "i", "n", "v", "x" }, "<C-s>", vim.cmd.write, opts)

@@ -1,7 +1,7 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v2.x",
-  event = "VimEnter",
+	event = "VimEnter",
 	name = "neo-tree",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -36,6 +36,11 @@ return {
 		filesystem = {
 			use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
 			follow_current_file = true,
+			filtered_items = {
+				hide_by_name = {
+					"node_modules",
+				},
+			},
 		},
 		buffers = {
 			follow_current_file = true, -- This will find and focus the file in the active buffer every
