@@ -24,11 +24,8 @@ return {
 			silent = true,
 		},
 	},
-	init = function()
-		vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-	end,
 	opts = {
-		close_if_last_window = true,
+		close_if_last_window = false,
 		popup_border_style = "rounded",
 		enable_git_status = true,
 		enable_diagnostics = true,
@@ -41,6 +38,7 @@ return {
 					"node_modules",
 				},
 			},
+			hijack_netrw_behavior = "open_current",
 		},
 		buffers = {
 			follow_current_file = true, -- This will find and focus the file in the active buffer every
