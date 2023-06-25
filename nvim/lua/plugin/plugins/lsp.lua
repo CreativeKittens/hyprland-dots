@@ -131,7 +131,7 @@ return {
 				"clangd",
 				"rust_analyzer",
 				"lua_ls",
-				"intelephense",
+				"intelephense", -- Might not work
 				"pyright",
 
 				"dockerls",
