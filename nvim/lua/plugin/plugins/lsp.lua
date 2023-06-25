@@ -126,16 +126,18 @@ return {
 				"tsserver",
 
 				"marksman",
-				"yamlls",
+				"sqlls",
+
 				"clangd",
 				"rust_analyzer",
 				"lua_ls",
-				"sqlls",
+				"intelephense",
 				"pyright",
 
 				"dockerls",
 				"docker_compose_language_service",
 				"bashls",
+				"yamlls",
 			})
 
 			-- Enable format on save
@@ -161,18 +163,46 @@ return {
 					},
 				},
 			})
-			-- (Optional) Configure lua language server for neovim
+			-- Lsp Config
 			require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-
-			require("lspconfig").tsserver.setup({
-				on_init = function(client)
-					client.server_capabilities.documentFormattingProvider = false
-					client.server_capabilities.documentFormattingRangeProvider = false
-				end,
+			require("lspconfig").emmet_ls.setup({
+				filetypes = {
+					"astro",
+					"css",
+					"eruby",
+					"html",
+					"htmldjango",
+					"javascriptreact",
+					"less",
+					"pug",
+					"sass",
+					"scss",
+					"svelte",
+					"typescriptreact",
+					"vue",
+					"php",
+				},
 			})
 
+			-- Skip server to make sure Custom LSP config / tools work
 			lsp.skip_server_setup({ "tsserver" })
 			lsp.setup()
+
+			-- Custom LSP config / tools
+			require("typescript").setup({
+				server = {
+					on_init = function(client)
+						client.server_capabilities.documentFormattingProvider = false
+						client.server_capabilities.documentFormattingRangeProvider = false
+					end,
+					on_attach = function(client, bufnr)
+						-- You can find more commands in the documentation:
+						-- https://github.com/jose-elias-alvarez/typescript.nvim#commands
+
+						vim.keymap.set("n", "<leader>ci", "<cmd>TypescriptAddMissingImports<cr>", { buffer = bufnr })
+					end,
+				},
+			})
 
 			-- Null ls
 			local null_ls = require("null-ls")
@@ -188,17 +218,6 @@ return {
 						},
 					}),
 					null_ls.builtins.formatting.stylua,
-				},
-			})
-
-			require("typescript").setup({
-				server = {
-					on_attach = function(client, bufnr)
-						-- You can find more commands in the documentation:
-						-- https://github.com/jose-elias-alvarez/typescript.nvim#commands
-
-						vim.keymap.set("n", "<leader>ci", "<cmd>TypescriptAddMissingImports<cr>", { buffer = bufnr })
-					end,
 				},
 			})
 

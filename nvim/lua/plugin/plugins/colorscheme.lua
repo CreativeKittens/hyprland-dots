@@ -1,3 +1,4 @@
+-- Colorscheme
 return {
 	"catppuccin/nvim",
 	priority = 9999,

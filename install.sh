@@ -31,6 +31,8 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     noise-suppression-for-voice thunar-archive-plugin file-roller kitty hyprpicker neofetch ntfs-3g \
     waybar-hyprland-git dunst cava btop wlogout swaylock-effects sddm-git pamixer \
     nwg-look-bin xdg-user-dirs 
+  
+  yay -S jq ripgrep
 
   yay -S xdg-desktop-portal-hyprland-git
 
