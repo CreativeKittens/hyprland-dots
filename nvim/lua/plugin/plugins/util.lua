@@ -6,7 +6,7 @@ return {
 			char = "│",
 			context_char = "│",
 			filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
-			show_current_context = true,
+			--[[ show_current_context = true, ]]
 		},
 	},
 

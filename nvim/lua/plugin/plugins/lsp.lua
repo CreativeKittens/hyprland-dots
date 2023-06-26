@@ -131,7 +131,7 @@ return {
 				"clangd",
 				"rust_analyzer",
 				"lua_ls",
-				"intelephense", -- Might not work
+				"intelephense",
 				"pyright",
 
 				"dockerls",
@@ -163,6 +163,7 @@ return {
 					},
 				},
 			})
+
 			-- Lsp Config
 			require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 			require("lspconfig").emmet_ls.setup({
@@ -183,7 +184,9 @@ return {
 					"php",
 				},
 			})
-
+			require("lspconfig").intelephense.setup({
+				single_file_support = true,
+			})
 			-- Skip server to make sure Custom LSP config / tools work
 			lsp.skip_server_setup({ "tsserver" })
 			lsp.setup()
