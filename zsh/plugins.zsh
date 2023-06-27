@@ -35,5 +35,5 @@ zinit light zdharma-continuum/history-search-multi-word
 zinit ice wait lucid from"gh-r" as"program" mv"bin/exa* -> exa"
 zinit light ogham/exa
 
-zinit ice wait lucid from"gh-r" as"program" mv"*/bat -> bat" atload"export BAT_THEME='Nord'"
+zinit ice wait lucid from"gh-r" as"program" mv"*/bat -> bat" atload"export BAT_THEME='Catppuccin-mocha'"
 zinit light sharkdp/bat
