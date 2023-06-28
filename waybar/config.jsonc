@@ -6,16 +6,8 @@
   "passtrough": true,
   "gtk-layer-shell": true,
   "margin": "5px 10px 0px 10px",
-  "modules-left": [
-    "custom/menu",
-    "wlr/workspaces",
-    "tray"
-  ],
-  "modules-center": [
-    "custom/media",
-    "clock",
-    "custom/updater"
-  ],
+  "modules-left": ["custom/menu", "wlr/workspaces", "tray"],
+  "modules-center": ["custom/media", "clock", "custom/updater"],
   "modules-right": [
     "cpu",
     "memory",
@@ -27,7 +19,7 @@
     "network",
     "custom/power"
   ],
-  
+
   // Module left
   "custom/menu": {
     "format": " ~",
@@ -144,23 +136,12 @@
     "format-charging": "{icon} {capacity}% (󱐌 Charging)",
     "format-plugged": "{icon} {capacity}% ",
     "format-alt": "{time} {icon}",
-    "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
-    ]
+    "format-icons": [" ", " ", " ", " ", " "]
   },
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon}{percent}%",
-    "format-icons": [
-      "󰃞 ",
-      "󰃟 ",
-      "󰃝 ",
-      "󰃠 "
-    ],
+    "format-icons": ["󰃞 ", "󰃟 ", "󰃝 ", "󰃠 "],
     "on-scroll-up": "brightnessctl set +10 -n 50",
     "on-scroll-down": "brightnessctl set 10- -n 50"
   },
@@ -179,11 +160,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "",
-        "",
-        " "
-      ]
+      "default": ["", "", " "]
     },
     "on-click-right": "killall pavucontrol || pavucontrol"
   },
@@ -210,6 +187,5 @@
     "format": "",
     "tooltip": false,
     "on-click": "killall wlogout ||  wlogout --protocol layer-shell -b 5 -T 400 -B 400"
-  },
-
+  }
 }
