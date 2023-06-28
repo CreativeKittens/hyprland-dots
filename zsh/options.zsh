@@ -10,4 +10,3 @@ zstyle :compinstall filename '/home/akbarsani/.zshrc'
 
 autoload -Uz compinit
 compinit
-source /usr/share/nvm/init-nvm.sh
