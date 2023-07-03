@@ -26,3 +26,4 @@ export XDG_VIDEOS_DIR="$HOME/Videos"
 
 export DATACENTER="/mnt/datacenter"
 export DATAEXTERNAL="/mnt/dataexternal"
+
