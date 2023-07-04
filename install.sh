@@ -63,7 +63,7 @@ fi
 read -n1 -rep 'Would you like to enable SDDM ? (y,n) ' WIFI
 if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
   LOC="/etc/sddm.conf"
-  echo -e "[Theme]\nCurrent=catppuccin" | sudo tee -a $LOC
+  echo -e "[Theme]CursorTheme=Layan-white Cursors\nCurrent=catppuccin" | sudo tee -a $LOC
   echo -e "\n"
   echo -e "Enable SDDM service...\n"
 
