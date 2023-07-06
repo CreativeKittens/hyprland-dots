@@ -1,3 +1,6 @@
+zinit ice from"gh-r" as"program" mv"pnpm* -> pnpm" bpick"*linux*"
+zinit light pnpm/pnpm
+
 zinit ice wait lucid from"gh-r" as"program" mv"bin/exa* -> exa"
 zinit light ogham/exa
 
