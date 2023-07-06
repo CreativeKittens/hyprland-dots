@@ -10,7 +10,7 @@ zinit light jqlang/jq
 zinit ice wait lucid from"gh-r" as"command" mv"*/rg -> rg"
 zinit light BurntSushi/ripgrep
 
-zinit ice wait lucid from"gh-r" as"command" mv"bin/fnm* -> fnm" atload'eval "$(fnm env --use-on-cd)"'
+zinit ice wait lucid from"gh-r" as"command" mv"fnm* -> fnm" atload'eval "$(fnm env --use-on-cd)"'
 zinit light Schniz/fnm
 
 zinit ice from"gh-r" as"command"
