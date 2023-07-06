@@ -25,6 +25,7 @@ zinit wait lucid for \
 zinit light-mode for \
   hlissner/zsh-autopair \
   MichaelAquilina/zsh-you-should-use \
+  Aloxaf/fzf-tab
 
 zinit ice wait'3' lucid
 zinit light zsh-users/zsh-history-substring-search
