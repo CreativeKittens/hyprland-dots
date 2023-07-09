@@ -109,6 +109,11 @@ if [[ $COM == "Y" || $COM == "y" ]]; then
   yay -S --noconfirm firefox-bin brave-bin firefox-nightly-bin celluloid-git evince-git
 fi
 
+read -n1 -rep 'Would you install developer tools ?(docker, rustup, make) (y,n) ' DEV
+if [[ $DEV ]]; then
+  yay --S --noconfim docker docker-compose rustup go postman mongodb-compass
+fi
+
 echo -e "Script had completed.\n"
 echo -e "You can start Hyprland by typing Hyprland (note the capital H).\n"
 read -n1 -rep 'Would you like to start Hyprland now? (y,n)' HYP
