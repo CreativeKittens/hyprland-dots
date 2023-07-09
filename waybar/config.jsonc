@@ -19,7 +19,6 @@
     "network",
     "custom/power"
   ],
-
   // Module left
   "custom/menu": {
     "format": " ~",
@@ -62,7 +61,6 @@
     "icon-size": 14,
     "spacing": 10
   },
-
   // Module center
   "custom/media": {
     "format": "{icon}{}",
@@ -111,7 +109,6 @@
     "interval": 720,
     "on-click": "kitty -e yay -Syu" // update system
   },
-
   // Module Right
   "cpu": {
     "format": "󰻠 {usage} %",
@@ -134,9 +131,12 @@
     },
     "format": "{icon} {capacity}%",
     "format-charging": "{icon} {capacity}% (󱐌 Charging)",
-    "format-plugged": "{icon} {capacity}% ",
+    "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     "format-icons": [" ", " ", " ", " ", " "]
+  },
+  "battery#bat2": {
+    "bat": "BAT2"
   },
   "backlight": {
     "device": "intel_backlight",
