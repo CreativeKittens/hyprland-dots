@@ -111,7 +111,7 @@ fi
 
 read -n1 -rep 'Would you install developer tools ?(docker, rustup, make) (y,n) ' DEV
 if [[ $DEV ]]; then
-  yay --S --noconfim docker docker-compose rustup go postman-git mongodb-compass
+  yay --S --noconfirm docker docker-compose rustup go postman-bin mongodb-compass
 fi
 
 echo -e "Script had completed.\n"
